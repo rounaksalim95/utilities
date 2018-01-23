@@ -1,2 +1,5 @@
-# utilities
-Some utility scripts 
+# Utilities
+*Some utility scripts*
+
+## TODO:
+- Uninstaller for macOS applications
