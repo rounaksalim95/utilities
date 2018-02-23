@@ -13,7 +13,6 @@ P.S. The code is pretty ugly and hacky but gets the job done; will probably clea
 
 import sys
 import os
-import subprocess
 
 # Ensure the right number of arguments were passed 
 # Two strings passed as argumnents; date assignment is due and the assignment name 
