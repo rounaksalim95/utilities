@@ -22,13 +22,7 @@ if (len(sys.argv) != 3):
     print('Incorrect number of arguments; please pass in only two strings that contain the due date in the format : Month[3 letter] Date[1/2 digit] like Nov 12 and the assignment name')
     exit()
 
-# Get the current working directory 
-# Need to use subprocess to get the output result of running the command 
-directory = subprocess.check_output(['pwd'])
-# Decode the result using utf-8 since we get back a byte string 
-directory = directory.decode("utf-8")
-directory = directory.rstrip('\n')
-assignment = sys.argv[2]
+assignment_branch = sys.argv[2]
 
 '''
 Processes the lines read from the file containing the repos 
@@ -66,7 +60,7 @@ def process_line(line):
     os.system('cd ' + parts[0] + ' && cd ' + repo_name + ' && rm log.txt')
     
     # Check out the latest commit before the due date 
-    os.system('cd ' + parts[0] + ' && cd ' + repo_name + ' && git checkout ' + commit + ' && git checkout -b ' + assignment)
+    os.system('cd ' + parts[0] + ' && cd ' + repo_name + ' && git checkout ' + commit + ' && git checkout -b ' + assignment_branch)
     
 with open('repos.txt') as repos:
     for line in repos:
