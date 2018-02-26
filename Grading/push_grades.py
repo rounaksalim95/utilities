@@ -37,8 +37,8 @@ def process_line(line):
     parts = line.split(' ')
     # parts[0] contains name of student 
     # parts[1] contains gitlab url 
-    
-    command = 'cd ' + parts[0] + ' && ' + git_add + ' && ' + git_commit + ' && ' + git_push
+    repo_name = parts[1].split('/')[1].split('.')[0]
+    command = 'cd ' + parts[0] + ' cd ' + repo_name + ' && ' + git_add + ' && ' + git_commit + ' && ' + git_push
     os.system(command)
     
 with open('repos.txt') as repos:
