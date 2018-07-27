@@ -16,9 +16,9 @@ def convert_links(txt_file):
             if "youtu.be" in link:
                 parts = link.split("/")
                 youtube_id = parts[-1]
-                f_new.write("https://www.youtube.com/watch?v=" + youtube_id)
+                f_new.write("https://www.youtube.com/watch?v=" + youtube_id + "\n")
             else:
-                f_new.write(link)
+                f_new.write(link.strip() + "\n")
 
     f_old.close()
     f_new.close()

@@ -6,6 +6,7 @@ Requires: python3, youtube-dl, pafy
 '''
 
 import os
+# from multiprocessing import Process
 
 import pafy
 
@@ -46,7 +47,25 @@ for item in os.listdir():
     if ".txt" in item:
         directories.append(item)
 
+# procs = []
+
+# # Create folders for individual .txt files and download the audio files there using a process
+# # for each directory
+# for directory in directories:
+#     print("Creating directory: " + "./" + directory[:-4] + "/")
+#     create_folder("./" + directory[:-4] + "/")
+#     proc = Process(target=download_audio, args=(directory,))
+#     procs.append(proc)
+#     proc.start()
+
+# # Complete the processes
+# for proc in procs:
+#     proc.join()
+
+
 # Create folders for individual .txt files and download the audio files there
 for directory in directories:
+    print("Creating directory: " + "./" + directory[:-4] + "/")
     create_folder("./" + directory[:-4] + "/")
     download_audio(directory)
+    print("Done downloading songs for " + directory)
