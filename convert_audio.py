@@ -46,6 +46,11 @@ def convert_audio(directoy_path):
         song = AudioSegment.from_file(audio, audio_type)
         song.export(audio[:-strip_num] + ".mp3", format="mp3")
 
+        print("-> " + audio[:-strip_num] + ".mp3 created")
+
+        # Remove the old audio file
+        os.remove(audio)
+
 # Check whether arguments have been provided
 if len(sys.argv) == 1:
     print("Please provide the folders that contain the audio files")
