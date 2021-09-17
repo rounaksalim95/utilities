@@ -34,10 +34,11 @@ def main():
             if not f.startswith("."):
                 object_path = os.path.join(directory, f)
                 if os.path.isfile(object_path):
-                    space_free_name = os.path.join(directory, f.replace(" ", "-"))
-                    os.rename(object_path, space_free_name)
+                    if " " in f:
+                        space_free_name = os.path.join(directory, f.replace(" ", "-"))
+                        os.rename(object_path, space_free_name)
+                        print("Renamed " + object_path + " to " + space_free_name)
                 elif os.path.isdir(object_path):
-                    print("Pushing directory: ", object_path)
                     stack.append(object_path)
 
 
