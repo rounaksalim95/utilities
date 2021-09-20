@@ -6,9 +6,9 @@ This simple Python3 script recursively goes through the folder provided as an ar
 This script doesn't use os.walk as we want to ignore hidden directories such as .git.
 
 Note: 
-- Ignores files and directories beginning with '.' - don't want to be renaming files in the `.git` folder..
-- The script doesn't play well with symbolic links so be careful with those while using this!
-    - Currently I don't have use of symlinks so the overhead of adding support for this isn't worth it; might implement it later.
+    - Ignores files and directories beginning with '.' - don't want to be renaming files in the `.git` folder..
+    - The script doesn't play well with symbolic links so be careful with those while using this!
+        - Currently I don't have use of symlinks so the overhead of adding support for this isn't worth it; might implement it later.
 
 Usage: python3 space_eliminator.py <path-to-directory>
 '''
@@ -20,7 +20,7 @@ import sys
 
 def main():
     if (len(sys.argv) != 2):
-        print("Only root directory that needs to be cleansed is accepted")
+        print("Only root directory that needs to be cleansed is accepted as an argument")
         exit()
 
     # Let's do a DFS and go through all the directories
